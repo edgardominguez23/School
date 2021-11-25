@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\EstudianteMateriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('estudiante', EstudianteController::class);
+Route::resource('materias', MateriaController::class);
+Route::get('estudiante-materia', [EstudianteMateriaController::class,'index'])->name('relacion.index');
